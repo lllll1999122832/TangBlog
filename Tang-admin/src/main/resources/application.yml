@@ -1,0 +1,34 @@
+server:
+  port: 8989
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.200.130/sg_blog?characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+    username: root
+    password: 12345
+    driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 5MB
+  main:
+    allow-circular-references: true #可以循环注入bean
+  redis:
+    host: 192.168.200.130
+    password: 12345
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher #整和swagger
+mybatis-plus:
+  configuration:
+    # 日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-field: delFlag #配置逻辑删除字段
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+#      id-type: auto
+oss:
+  accessKey: FK_ATJ8-Mf_e-yOEUTgCZZ-hTaHv6HzKcCT6Oj8S
+  secretKey: yFgn7Pa8sZKjZ94oISG2jRPCxrsMwGXwujwjzw1C
+  bucket: rog13
